@@ -2,7 +2,7 @@
 if (!isset($_GET['url']) || !isset($_GET['type'])) {
     $responseArray = [
         'code' => 0,
-        'msg' => '未提供 URL 或类型参数'
+        'msg' => 'http://www.baidu.com'
     ];
 
     header('Content-Type: application/json');
@@ -16,13 +16,13 @@ $type = $_GET['type'];
 $encodedUrl = base64_encode($urlToEncode);
 
 if ($type === 'open') {
-    $fanghUrl = 'http://openurl.zeabur.app/?url=www.baidu.com' . $encodedUrl;
+    $fanghUrl = 'http://openurl.zeabur.app/?url=' . $encodedUrl;
 } elseif ($type === 'jump') {
-    $fanghUrl = 'http://jumping.zeabur.app/?url=www.baidu.com' . $encodedUrl;
+    $fanghUrl = 'http://jumping.zeabur.app/?url=' . $encodedUrl;
 } else {
     $responseArray = [
         'code' => 0,
-        'msg' => '无效的类型参数'
+        'msg' => 'http://www.baidu.com'
     ];
     
     header('Content-Type: application/json');
